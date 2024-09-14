@@ -1,0 +1,81 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class dash extends CI_Controller {
+    public function __construct()
+    {
+        parent::__construct();
+		$this->load->model('dash_model');
+
+    }
+	
+	
+	public function index()
+	{
+		$data['alldata']=$this->dash_model->getallDash();
+
+        // echo "<pre>";
+        // print_r($data);
+
+		$this->load->view('common/header_view');
+		$this->load->view('dashboard/dashDetailsview', $data);
+		$this->load->view('common/footer_view');
+	}
+    
+    public function create()
+	{
+       
+
+		$this->load->view('common/header_view');
+		$this->load->view('dashboard/dash_view');       
+		$this->load->view('common/footer_view');
+	}
+	function insertEnquiry(){
+        $EnquiryName= $this->input->post('EnquiryName'); 
+        $EnquiryTime= $this->input->post('EnquiryTime'); 
+        $Date= $this->input->post('Date'); 
+        $ReferenceType= $this->input->post('ReferenceType');
+        $ReferenceName= $this->input->post('ReferenceName');
+        $ReferenceNo= $this->input->post('ReferenceNo'); 
+        $EnquiryReason= $this->input->post('EnquiryReason'); 
+        // $Mobile= $this->input->post('Mobile');
+        // $Gender= $this->input->post('Gender');  
+     
+       $fields=array('EnquiryName'=>$EnquiryName,
+                      'EnquiryTime'=>$EnquiryTime,
+                      'Date'=>$Date,
+                      'ReferenceType'=>$ReferenceType,
+                      'ReferenceName'=>$ReferenceName,
+                      'ReferenceNo'=>$ReferenceNo,
+                      'EnquiryReason'=>$EnquiryReason
+                    //   'Mobile'=> $Mobile,
+                    //   'Gender'=>$Gender,
+        //  'created_date'=>date('Y-m-d H:i:s'),
+        //      'created_by'=>1
+            );
+            $this->dash_model->insertdata($fields);
+         echo json_encode($fields);
+    //  $this->Teacher_model->insertRecord("teacherdetails",$fields);
+   } 	
+	
+}
+
+    // public function staff()
+	// {
+	// 	$this->load->view('common/header_view');
+    //     $this->load->view('StaffMessage/StaffMessage_view.php');
+	// 	$this->load->view('common/footer_view');
+	// }
+    // public function invoice()
+	// {
+	// 	$this->load->view('common/header_view');
+    //     $this->load->view('Invoice/Invoice_view.php');
+	// 	$this->load->view('common/footer_view');
+	// }
+	
+    
+  
+	
+	
+// }
+
