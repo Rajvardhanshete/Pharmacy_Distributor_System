@@ -66,7 +66,7 @@
                                             <input class="form-control" id="BranchName" type="text" name="BranchName" placeholder="Enter Branch Name" required />
                                         </div>
 
-                                        <div class="col-md-2 form-group mb-3">
+                                        <div class="col-md-3 form-group mb-3">
                                             <label for="PartyName">Party Name</label>
                                             <select class="form-control" name="PartyName" id="PartyName">
                                                 <option value="">Select Party Name</option>
@@ -92,8 +92,7 @@
 
                                                 <div class="col-5 form-group mb-3">
                                                     <label for="StartTime">Office Time</label>
-                                                    <input class="form-control" id="StartTime" type="Time" name="StartTime" value="<?php if (!empty($data))
-                                                                                                                                        echo $data[0]->StartTime; ?>" />
+                                                    <input class="form-control" id="StartTime" type="Time" name="StartTime" value="<?php if (!empty($data))echo $data[0]->StartTime; ?>" />
                                                 </div>
 
                                                 <div class="col-2 form-group mb-3 mt-4 text-center">
@@ -102,8 +101,7 @@
 
                                                 <div class="col-5 form-group mb-3 mt-1">
                                                     <label for="EndTime"> </label>
-                                                    <input class="form-control" id="EndTime" type="Time" name="EndTime" value="<?php if (!empty($data))
-                                                                                                                                    echo $data[0]->EndTime; ?>" />
+                                                    <input class="form-control" id="EndTime" type="Time" name="EndTime" value="<?php if (!empty($data)) echo $data[0]->EndTime; ?>" />
                                                 </div>
                                             </div>
                                         </div>
@@ -174,7 +172,7 @@
 
                                     <div class="row">
                                         <div class="col-md-12 text-right">
-                                            <button class="btn btn-primary  text-white" style="background-color:green;font-weight:900" type="button" name="btn_save" id="btn_save"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+                                            <button class="btn btn-primary  text-white" style="background-color:green;font-weight:900" type="button" name="btn_save_branch_detail" id="btn_save_branch_detail"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
                                                     <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
                                                     <path d="m10.97 4.97-.02.022-3.473 4.425-2.093-2.094a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05" />
                                                 </svg>&nbsp Save</button>
@@ -552,28 +550,38 @@
             var a = false;
 
             $(document).ready(function() {
-                $("#btn_save").click(function() {
+                $("#btn_save_branch_detail").click(function() {
                     // if (!a) {
-                    saveperform();
+                    saveperform_branchdetail();
                     // }
                 });
             });
 
-            function saveperform() {
-                var VisitorName = $('#VisitorName').val();
-                var date = $("#date").val();
-                var TimeIn = $("#TimeIn").val();
-                var TimeOut = $('#TimeOut').val();
-                var Address = $('#Address').val();
-                var Reasone = $('#Reasone').val();
-                // var EnquiryReason = $('#EnquiryReason').val();
+            function saveperform_branchdetail() {
+                var BranchName = $('#BranchName').val();
+                var PartyName = $("#PartyName").val();
+                var GSTNumber = $("#GSTNumber").val();
+                var PANNumber = $('#PANNumber').val();
+                var StartTime = $('#StartTime').val();
+                var EndTime = $('#EndTime').val();
+                var HACDisplayName = $('#HACDisplayName').val();
+                var ContactNo = $('#ContactNo').val();
+                var Email = $('#Email').val();
+                var PurchaseEmail = $('#PurchaseEmail').val();
+                var SalesEmail = $('#SalesEmail').val();
+                var Website = $('#Website').val();
+                var FacebookLink = $('#FacebookLink').val();
+                var GooglePlus = $('#GooglePlus').val();
+                var TwitterLink = $('#TwitterLink').val();
+                var LinkedinLink = $('#LinkedinLink').val();
+                var InstagramLink = $('#InstagramLink').val();
 
 
 
                 // Check if no gender is selected
 
                 // Check if any of the required fields are empty or haven't been selected
-                if (VisitorName === "" || date === "" || TimeIn == "0" || TimeOut === "" || Address === "" || Reasone === "") {
+                if (BranchName === "" || PartyName === "" || GSTNumber == "0" || PANNumber === "" || StartTime === "" || EndTime === "" || HACDisplayName === "" || ContactNo ==="" || Email ==="" || PurchaseEmail ==="" || SalesEmail === "" || Website ==="" || FacebookLink === "" || GooglePlus === "" || TwitterLink ==="" || LinkedinLink ==="" || InstagramLink ==="" || ) {
                     Swal.fire(
                         'Opps!',
                         'Please Enter Required Fields!',
@@ -583,7 +591,7 @@
                     a = true;
 
                     $.ajax({
-                        url: base_path + "visitor/insertVisit",
+                        url: base_path + "HR/Branchinformation/insertBranchinformation",
                         type: "POST",
                         data: $('#Form').serialize(),
                         beforeSend: function() {
