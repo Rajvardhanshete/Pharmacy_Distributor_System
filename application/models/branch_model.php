@@ -6,7 +6,7 @@
           $this->load->database();
       }
   
-      public function insertdata($model)
+      public function insertdataBranchinformation($model)
 	{
 		return $this->db->insert('branch',$model);
 			//return $sql->result();
