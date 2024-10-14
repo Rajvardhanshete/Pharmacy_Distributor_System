@@ -18,12 +18,12 @@
                             <div class="row">
                                 <div class="col-md-2 form-group mb-3">
                                     <label for="OutwordNo">Outword no.*</label>
-                                    <input class="form-control" id="OutwordNo" type="text" name="OutwordNo" value="" />
+                                    <input class="form-control" id="OutwordNo" type="text" name="OutwordNo"   />
                                 </div>
                                 <div class="col-md-2 form-group mb-3">
                                     <label for="OutwordLetterNo">Outword Letter no.*</label>
                                     <input class="form-control" id="OutwordLetterNo" type="text" name="OutwordLetterNo"
-                                        value="" />
+                                          />
                                 </div>
                                 <div class="col-md-2 form-group mb-3">
                                     <label for="OutwordDate">Outword Date</label>
@@ -37,12 +37,12 @@
                                 <div class="col-md-3 form-group mb-3">
                                     <label for="Name">Name</label>
                                     <input class="form-control" id="Name" type="text" name="Name"
-                                        value="" />
+                                          />
                                 </div>
                                 <div class="col-md-3 form-group">
                                     <label for="Place">Place.*</label>
                                     <select class="form-control" name="Place" id="Place">
-                                    <option value="">--Select--</option>
+                                    <option  >--Select--</option>
                                     <?php foreach( $deodata as $value)
                                             {
                                                 // $selected="";
@@ -53,7 +53,7 @@
                                                 //     } 
                                                 // }  
                                                                 
-                                                echo '<option value="'.$value->Id.'" '.$selected.'>'.$value->Location.'</option>';
+                                                echo '<option value="'.$value->ID.'" '.$selected.'>'.$value->Location.'</option>';
                                             }
                                             ?> 
                                     </select>
@@ -61,12 +61,12 @@
                                 <div class="col-md-4 form-group mb-3">
                                     <label for="Address">Address</label>
                                     <textarea class="form-control" id="Address" type="" name="Address"
-                                        value=""></textarea>
+                                         ></textarea>
                                 </div>
                                 <div class="col-md-2 form-group mb-3">
                                     <label for="IncomingNumber">Incoming Number for Reference</label>
                                     <input class="form-control" id="IncomingNumber" type="text" name="IncomingNumber"
-                                        value="" />
+                                          />
                                 </div>
                             </div>
                             <div class="row">
@@ -75,22 +75,20 @@
                                     <input class="form-control" type="date" id="IncomingDate" name="IncomingDate"
                                         value="<?php echo date('Y-m-d'); ?>" />
                                 </div>
-                                <div class="col-md-4 form-group">
-                                    <label for="subject">The subject of correspondence.*</label>
+                                <div class="col-md-4 form-group mb-3">
+                                    <label for="subject">subject</label>
                                     <textarea class="form-control" id="subject" type="" name="subject"
-                                        value="">
-                                    </textarea>
+                                         ></textarea>
                                 </div>
                                 <div class="col-md-4 form-group mb-3">
                                     <label for="Remark">Remark</label>
-                                    <textarea class="form-control " rows="1" id="Remark" type="" name="Remark"
-                                        value="">
-                                    </textarea>
+                                    <textarea class="form-control" id="Remark" type="" name="Remark"
+                                         ></textarea>
                                 </div>
                                 <div class="col-md-2 form-group mb-3">
                                     <label for="PostalCharges">Postal Charges</label>
                                     <input class="form-control" id="PostalCharges" type="text" name="PostalCharges"
-                                        value="" />
+                                          />
                                 </div>
 
                             </div>
@@ -175,7 +173,7 @@
 // Check if no gender is selected
 
         // Check if any of the required fields are empty or haven't been selected
-        if (OutwordNo === "" || OutwordLetterNo === "" ||OutwordDate=="" || Name === "" || Place === "" || Address === "" || IncomingNumber === "0" || IncomingDate === "" || subject === "" || Remark === "" || PostalCharges === "") {
+        if (OutwordNo === "" || OutwordLetterNo === "" ||OutwordDate=="" || Name === "" || Place === "" || Address === "" || IncomingNumber === "" || IncomingDate === "" || subject === "" || Remark === "" || PostalCharges === "") {
             Swal.fire(
                 'Opps!',
                 'Please Enter Required Fields!',

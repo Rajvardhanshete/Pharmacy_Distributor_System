@@ -99,15 +99,6 @@
                                     <label for="ItemDescription">Item Description</label>
                                     <textarea class="form-control" id="ItemDescription" name="ItemDescription" placeholder="Please Enter Description"></textarea>
                                 </div>
-
-                                <div class="form-check col-md-2 mt-5" style="font-size: .9 rem;">
-                                    <input type="checkbox" class="form-check-input" id="CheckboxWarranty" name="CheckboxWarranty">
-                                    <label for="CheckboxWarranty">Warranty</label>
-                                </div>
-                                <div class="form-check col-md-2 mt-5" style="font-size: .9 rem;">
-                                    <input type="checkbox" class="form-check-input" id="CheckboxProgramming" name="CheckboxProgramming">
-                                    <label for="CheckboxProgramming">Programming</label>
-                                </div>
                                 <div class="form-check col-md-2 mt-5" style="font-size: .9 rem;">
                                     <input type="checkbox" class="form-check-input" id="CheckboxActive" name="CheckboxActive">
                                     <label for="CheckboxActive">Active</label>
@@ -175,20 +166,23 @@
         });
 
         function saveperform() {
-            var VisitorName = $('#VisitorName').val();
-            var date = $("#date").val();
-            var TimeIn = $("#TimeIn").val();
-            var TimeOut = $('#TimeOut').val();
-            var Address = $('#Address').val();
-            var Reasone = $('#Reasone').val();
-            // var EnquiryReason = $('#EnquiryReason').val();
+            var ItemName = $('#ItemName').val();
+            var ItemCategory = $("#ItemCategory").val();
+            var BrandName = $("#BrandName").val();
+            var Unit = $('#Unit').val();
+            var MinStock = $('#MinStock').val();
+            var MaxStock = $('#MaxStock').val();
+            var PurchasePrice = $('#PurchasePrice').val();
+            var SalePrice = $('#SalePrice').val();
+            var Party = $('#Party').val();
+            var ItemDescription = $('#ItemDescription').val();
 
 
 
             // Check if no gender is selected
 
             // Check if any of the required fields are empty or haven't been selected
-            if (VisitorName === "" || date === "" || TimeIn == "0" || TimeOut === "" || Address === "" || Reasone === "") {
+            if (ItemName === "" || ItemCategory === "" || BrandName == "0" || Unit === "" || MinStock === "" || MaxStock === "" || PurchasePrice === "" || SalePrice === "" || Party === "" || ItemDescription === "" || ) {
                 Swal.fire(
                     'Opps!',
                     'Please Enter Required Fields!',
@@ -198,7 +192,7 @@
                 a = true;
 
                 $.ajax({
-                    url: base_path + "visitor/insertVisit",
+                    url: base_path + "Inventory/iteminformation",
                     type: "POST",
                     data: $('#Form').serialize(),
                     beforeSend: function() {

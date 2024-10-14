@@ -31,22 +31,22 @@
                     <div class="card-body">
                         <form role="form" id="Form" action="" method="post">
                             <ul class="nav nav-tabs">
-                                <li class="nav-item">
+                                <li class="nav-item" id="nav1">
                                     <a class="nav-link active" aria-current="page" data-toggle="tab" href="#form1"><i class="fa-solid fa-circle-info"></i>&nbsp;Branch Details</a>
                                 </li>
-                                <li class="nav-item">
+                                <li class="nav-item" id="nav2">
                                     <a class="nav-link" data-toggle="tab" href="#form2"><i class="fa-solid fa-person"></i>&nbsp;Person Info</a>
                                 </li>
-                                <li class="nav-item">
+                                <li class="nav-item" id="nav3">
                                     <a class="nav-link" data-toggle="tab" href="#form3"><i class="fa-solid fa-address-card"></i>&nbsp;Address Info</a>
                                 </li>
-                                <li class="nav-item">
+                                <li class="nav-item" id="nav4">
                                     <a class="nav-link" data-toggle="tab" href="#form4"><i class="fa-solid fa-receipt"></i>&nbsp;Cash Account Info</a>
                                 </li>
-                                <li class="nav-item">
+                                <li class="nav-item" id="nav5">
                                     <a class="nav-link" data-toggle="tab" href="#form5"><i class="fa-solid fa-circle-info"></i>&nbsp;Account Info</a>
                                 </li>
-                                <li class="nav-item">
+                                <li class="nav-item" id="nav6">
                                     <a class="nav-link" data-toggle="tab" href="#form6"><i class="fa-solid fa-file-invoice"></i>&nbsp;Documents Info</a>
                                 </li>
                             </ul>
@@ -172,12 +172,12 @@
 
                                     <div class="row">
                                         <div class="col-md-12 text-right">
-                                            <button class="btn btn-primary  text-white" style="background-color:green;font-weight:900" type="button" name="btn_save_branch_detail" id="btn_save_branch_detail"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+                                            <!-- <button class="btn btn-primary  text-white" style="background-color:green;font-weight:900" type="button" name="btn_save_branch_detail" id="btn_save_branch_detail"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
                                                     <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
                                                     <path d="m10.97 4.97-.02.022-3.473 4.425-2.093-2.094a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05" />
-                                                </svg>&nbsp Save</button>
+                                                </svg>&nbsp next1</button> -->
 
-                                            <button class="btn btn-danger text-white" type="button" name="cancel" id="cancel" style="background-color:red;"><i class="fa-solid fa-xmark fa-xl"></i>&nbsp Cancel</button>
+                                            <button class="btn btn-danger text-white" type="button" name="Next1" id="Next1" style="background-color:red;"><i class="fa-solid fa-xmark fa-xl"></i>&nbsp Next</button>
 
                                         </div>
                                     </div>
@@ -548,13 +548,20 @@
         <script>
             var base_path = "<?php echo base_url(); ?>";
             var a = false;
-
+            const navItems = document.querySelectorAll('.nav-item');
+            
             $(document).ready(function() {
                 $("#btn_save_branch_detail").click(function() {
                     // if (!a) {
                     saveperform_branchdetail();
                     // }
                 });
+                document.getElementById('Next1').addEventListener('click', () => {
+            document.querySelector('.nav-item.active').classList.remove('active');
+            document.getElementById('nav2').classList.add('active');
+            console.log("set");
+        });
+
             });
 
             function saveperform_branchdetail() {
@@ -581,7 +588,7 @@
                 // Check if no gender is selected
 
                 // Check if any of the required fields are empty or haven't been selected
-                if (BranchName === "" || PartyName === "" || GSTNumber == "0" || PANNumber === "" || StartTime === "" || EndTime === "" || HACDisplayName === "" || ContactNo ==="" || Email ==="" || PurchaseEmail ==="" || SalesEmail === "" || Website ==="" || FacebookLink === "" || GooglePlus === "" || TwitterLink ==="" || LinkedinLink ==="" || InstagramLink ==="" || ) {
+                if (BranchName === "" || PartyName === "" || GSTNumber == "0" || PANNumber === "" || StartTime === "" || EndTime === "" || HACDisplayName === "" || ContactNo ==="" || Email ==="" || PurchaseEmail ==="" || SalesEmail === "" || Website ==="" || FacebookLink === "" || GooglePlus === "" || TwitterLink ==="" || LinkedinLink ==="" || InstagramLink ==="" ) {
                     Swal.fire(
                         'Opps!',
                         'Please Enter Required Fields!',

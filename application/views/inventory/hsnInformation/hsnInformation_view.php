@@ -29,11 +29,12 @@
             <div class="col-md-12">
                 <div class="card mb-4">
                     <div class="card-body">
-                        <form role="form" id="Form" action="" method="post">
+                        <form role="form" id="Form" action="<?php echo base_url('update/' . (isset($data->id) ? 'updateHsnInfo' : 'insertHsnInfo')) ?>" method="post">
                             <div class="h3 text-left">HSN Information</div>
                             <div class="row">
 
                                 <div class="col-md-3 form-group mb-3">
+                                    <input name="id" id="id" type="hidden" value="<?= isset($data->id) ? $data->id : '' ?> ">
                                     <label for="HSNCode4digit">HSN/SAC Code 4 Digit <span class="text-danger">*</span></label>
                                     <input class="form-control" id="HSNCode4digit" type="text" name="HSNCode4digit" placeholder="Enter HSN/SAC Code 4 Digit" required />
                                 </div>
@@ -46,22 +47,22 @@
                                 <div class="col-md-2 form-group mb-3">
                                     <label for="Services">Good/Services <span class="text-danger">*</span></label>
                                     <select class="form-control" name="Services" id="Services" required>
-                                        <option value="">Select Good/Services</option>
-                                        <option value="">Select Good/Services</option>
-                                        <option value="">Select Good/Services</option>
-                                        <option value="">Select Good/Services</option>
-                                        <option value="">Select Good/Services</option>
+                                        <option value="0">-Select-</option>
+                                        <?php foreach ($ServicesData as $value) {
+                                            echo '<option value="' . $value->ID . '" ' . $selected . '>' . $value->GoodServices . '</option>';
+                                        }
+                                        ?>
                                     </select>
                                 </div>
 
                                 <div class="col-md-2 form-group mb-3">
                                     <label for="GSTType">GST Type <span class="text-danger">*</span></label>
                                     <select class="form-control" name="GSTType" id="GSTType" required>
-                                        <option value="">Select Unit</option>
-                                        <option value="">Select Unit</option>
-                                        <option value="">Select Unit</option>
-                                        <option value="">Select Unit</option>
-                                        <option value="">Select Unit</option>
+                                        <option value="0">-Select-</option>
+                                        <?php foreach ($GstTypeData as $value) {
+                                            echo '<option value="' . $value->ID . '" ' . $selected . '>' . $value->Gsttype . '</option>';
+                                        }
+                                        ?>
                                     </select>
                                 </div>
                             </div>
@@ -71,7 +72,7 @@
                             <div class="row">
                                 <div class="col-md-12 text-right">
                                     <button class="btn btn-primary" type="button" name="btn_save" id="btn_save" style="background-color: #a82eda;font-weight:900 ;color:white;"><i class="fa-solid fa-floppy-disk" style="color: white; margin-right:.2rem"></i>Save</button>
-                                    <a class="btn btn-danger" style="color: white;" href="<?= base_url() ?>" type="button" name="cancel" id="cancel"><i class="fa-solid fa-xmark" style="color: white; margin-right:.2rem"></i>Cancel</a>
+                                    <a class="btn btn-danger" style="color: white;" href="<?= base_url() ?>/inventory/HsnInformation/create" type="button" name="cancel" id="cancel"><i class="fa-solid fa-xmark" style="color: white; margin-right:.2rem"></i>Cancel</a>
                                 </div>
                             </div>
                     </div>
@@ -103,20 +104,17 @@
         });
 
         function saveperform() {
-            var VisitorName = $('#VisitorName').val();
-            var date = $("#date").val();
-            var TimeIn = $("#TimeIn").val();
-            var TimeOut = $('#TimeOut').val();
-            var Address = $('#Address').val();
-            var Reasone = $('#Reasone').val();
-            // var EnquiryReason = $('#EnquiryReason').val();
+            var HSNCode4digit = $('#HSNCode4digit').val();
+            var HSNCode = $("#HSNCode").val();
+            var Services = $("#Services").val();
+            var GSTType = $('#GSTType').val();
 
 
 
             // Check if no gender is selected
 
             // Check if any of the required fields are empty or haven't been selected
-            if (VisitorName === "" || date === "" || TimeIn == "0" || TimeOut === "" || Address === "" || Reasone === "") {
+            if (HSNCode4digit === "" || HSNCode === "" || Services == "" || GSTType === "") {
                 Swal.fire(
                     'Opps!',
                     'Please Enter Required Fields!',
@@ -126,7 +124,7 @@
                 a = true;
 
                 $.ajax({
-                    url: base_path + "visitor/insertVisit",
+                    url: base_path + "Inventory/HsnInformation/insertHsnInfo",
                     type: "POST",
                     data: $('#Form').serialize(),
                     beforeSend: function() {
@@ -143,6 +141,7 @@
                             'Data Submitted Successfully!',
                             'success'
                         );
+                        window.location.href = base_path + "Inventory/HsnInformation/index";
 
                         a = false;
                     },

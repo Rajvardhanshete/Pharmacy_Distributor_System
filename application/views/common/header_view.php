@@ -636,35 +636,38 @@
                 <!-- ----------------------------------------Wearhouse Model-------------------------------------- -->
 
                 <ul class="childNav" data-parent="extrakits3">
-                    <li class="nav-item">
-                        <a href="#subMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="font-size:1rem;">
+                <li class="nav-item">
+                        <a href="#subMenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="font-size:1rem;">
                         <i class="fa-solid fa-bars-progress icond"></i>&nbsp;
                         <span class="item-name">Management</span></a>
-                        <ul class="collapse list-unstyled" id="subMenu" style="background-color:#1F3F49;">
-                            <li>
-                                <a href="#" style="color:white;">Create</a>
-                            </li>
-
-                            <li>
-                                <a href="#" style="color:white;">Update</a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="#subMenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="font-size:1rem;">
-                        <i class="fa-solid fa-wrench icond"></i>&nbsp;
-                        <span class="item-name">Equipment</span></a>
                         <ul class="collapse list-unstyled" id="subMenu1" style="background-color:#1F3F49;">
                             <li>
-                                <a href="#" style="color:white;">Create</a>
+                                <a href="<?=base_url();?>WareHouse/EquipmentMaster/create" style="color:white;">Create</a>
                             </li>
 
                             <li>
-                                <a href="#" style="color:white;">Update</a>
+                                <a href="<?=base_url();?>WareHouse/EquipmentMaster/index" style="color:white;">Update</a>
                             </li>
                         </ul>
                     </li>
+
+
+                    <li class="nav-item">
+                        <a href="#subMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="font-size:1rem;">
+                        <i class="fa-solid fa-wrench icond"></i>&nbsp;
+                        <span class="item-name"> Maintenance</span></a>
+                        <ul class="collapse list-unstyled" id="subMenu" style="background-color:#1F3F49;">
+                            <li>
+                                <a href="<?=base_url();?>WareHouse/EquipmentMaintenance/create" style="color:white;">Create</a>
+                            </li>
+
+                            <li>
+                                <a href="<?=base_url();?>WareHouse/EquipmentMaintenance/index" style="color:white;">Update</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    
 
 
                     <li class="nav-item">

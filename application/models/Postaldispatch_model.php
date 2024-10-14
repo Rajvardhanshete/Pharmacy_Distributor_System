@@ -15,9 +15,9 @@
      {      
       // SELECT studId, studentname, phone FROM `student_master`
         
-      $this->db->select('postaldispatchdetails.Id,postaldispatchdetails.OutwordNo,postaldispatchdetails.OutwordLetterNo	,postaldispatchdetails.OutwordDate, postaldispatchdetails.Name,postaldispatchdetails.Address,postaldispatchdetails.IncomingNumber,postaldispatchdetails.IncomingDate,postaldispatchdetails.subject,postaldispatchdetails.subject,postaldispatchdetails.Remark,postaldispatchdetails.PostalCharges, postdisp.Location');
+      $this->db->select('postaldispatchdetails.Id,postaldispatchdetails.OutwordNo,postaldispatchdetails.OutwordLetterNo	,postaldispatchdetails.OutwordDate, postaldispatchdetails.Name,postaldispatchdetails.Address,postaldispatchdetails.IncomingNumber,postaldispatchdetails.IncomingDate,postaldispatchdetails.subject,postaldispatchdetails.subject,postaldispatchdetails.Remark,postaldispatchdetails.PostalCharges, postaldispatchdrpdwn.Location');
       $this->db->from('postaldispatchdetails');     
-      $this->db->join('postdisp','postaldispatchdetails.Place = postdisp.Id','left');
+      $this->db->join('postaldispatchdrpdwn','postaldispatchdetails.Place = postaldispatchdrpdwn.Id','left');
       
               $query = $this->db->get();
               return $query->result();
@@ -36,9 +36,9 @@
      {      
       // SELECT studId, studentname, phone FROM `student_master`
       
-      $this->db->select('postaldispatchdetails.Id,postaldispatchdetails.OutwordNo,postaldispatchdetails.OutwordLetterNo	,postaldispatchdetails.OutwordDate, postaldispatchdetails.Name,postaldispatchdetails.Address,postaldispatchdetails.IncomingNumber,postaldispatchdetails.IncomingDate,postaldispatchdetails.subject,postaldispatchdetails.subject,postaldispatchdetails.Remark,postaldispatchdetails.PostalCharges, postdisp.Location');
+      $this->db->select('postaldispatchdetails.Id,postaldispatchdetails.OutwordNo,postaldispatchdetails.OutwordLetterNo	,postaldispatchdetails.OutwordDate, postaldispatchdetails.Name,postaldispatchdetails.Address,postaldispatchdetails.IncomingNumber,postaldispatchdetails.IncomingDate,postaldispatchdetails.subject,postaldispatchdetails.subject,postaldispatchdetails.Remark,postaldispatchdetails.PostalCharges, postaldispatchdrpdwn.Location');
       $this->db->from('postaldispatchdetails');     
-      $this->db->join('postdisp','postaldispatchdetails.Place = postdisp.Id','left');
+      $this->db->join('postaldispatchdrpdwn','postaldispatchdetails.Place = postaldispatchdrpdwn.Id','left');
       
               $query = $this->db->get();
               return $query->result();
@@ -49,8 +49,8 @@
      public function getdropdown()
      {      
       
-             $this->db->select('postdisp.*');
-             $this->db->from('postdisp');
+             $this->db->select('postaldispatchdrpdwn.*');
+             $this->db->from('postaldispatchdrpdwn');
               $query = $this->db->get();
               return $query->result();
              

@@ -2,39 +2,40 @@
 <div class="main-content-wrap sidenav-open d-flex flex-column">
     <!-- ============ Body content start ============= -->
     <div class="main-content">
-       
+
         <div class="separator-breadcrumb border-top"></div>
         <div class="row">
             <div class="col-md-12">
                 <div class="card mb-4">
                     <div class="card-body">
-                    <div class="breadcrumb">
-            <h1>Party Category Information</h1>
-        </div>
-        <hr>
-                        <form role="form" id="Form" action="" method="post">
+                        <div class="breadcrumb">
+                            <h1>Party Category Information</h1>
+                        </div>
+                        <hr>
+                        <form role="form" id="Form" action="<?php echo base_url('update/'.(isset($data -> id)?'updateParty':'insertParty'))?>" method="post">
                             <div class="row">
                                 <div class="col-md-3 form-group mb-3">
-                                    <label for="PartyCategory">Party Category Name<span style="color:red;">*</span></label>
-                                    <input class="form-control" id="PartyCategory" type="text" name="PartyCategory"
+                                <input name="id" id="id" type="hidden" value="<?= isset($data->id) ? $data->id : '' ?> ">
+                                    <label for="PartyName">Party Category Name<span style="color:red;">*</span></label>
+                                    <input class="form-control" id="PartyName" type="text" name="PartyName"
                                         value="" />
                                 </div>
 
                                 <div class="col-md-3 form-group mb-3">
-                                    <label for="PartyCategoryshort">Party Category Short Name<span style="color:red;">*</span></label>
-                                    <input class="form-control" id="PartyCategoryshort" type="text" name="PartyCategoryshort"
+                                    <label for="PartyShortName">Party Category Short Name<span style="color:red;">*</span></label>
+                                    <input class="form-control" id="PartyShortName" type="text" name="PartyShortName"
                                         value="" />
                                 </div>
                                 <div class="col-md-4 form-group mb-3">
-                                    <label for="Discription">Discription <span style="color:red;">*</span></label>
-                                    <textarea class="form-control" id="Discription" type="" name="Discription"
+                                    <label for="Description">Discription <span style="color:red;">*</span></label>
+                                    <textarea class="form-control" id="Description" type="" name="Description"
                                         value=""></textarea>
                                 </div>
-                               
-                               
-                               
-                                
-                               
+
+
+
+
+
                             </div>
                             <div class="row">
                                 <div class="col-md-12 text-right">
@@ -46,7 +47,7 @@
                                             <path
                                                 d="m10.97 4.97-.02.022-3.473 4.425-2.093-2.094a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05" />
                                         </svg>&nbsp Submit</button>
-                                    <a class="btn btn-warning "style="font-weight:900;" href="<?= base_url() ?>Staff/index"><svg
+                                    <a class="btn btn-warning " style="font-weight:900;" href="<?= base_url() ?>HR/party/index"><svg
                                             xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                             fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                                             <path
@@ -59,14 +60,14 @@
                                 </div>
                             </div>
 
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
 
- <!-- <script  src="<?php echo base_url('web_resources'); ?>/dist/js/jquery.min.js"></script>          
+        <!-- <script  src="<?php echo base_url('web_resources'); ?>/dist/js/jquery.min.js"></script>          
         <script  src="<?php echo base_url('web_resources'); ?>/dist/js/controllers/StudentCreate.js"></script> -->
 
         <script src="<?php echo base_url(); ?>Assets/js/jquery.min.js"></script>
@@ -78,71 +79,67 @@
 
 
         <script>
-    var base_path = "<?php echo base_url();?>";
-    var a = false;
+            var base_path = "<?php echo base_url(); ?>";
+            var a = false;
 
-    $(document).ready(function(){
-        $("#btn_save").click(function(){
-           // if (!a) {
-                saveperform();
-           // }
-        }); 
-    });
+            $(document).ready(function() {
+                $("#btn_save").click(function() {
+                    // if (!a) {
+                    saveperform();
+                    // }
+                });
+            });
 
-    function saveperform() {
-        var BranchName = $('#BranchName').val();
-        var EmployeeName = $("#EmployeeName").val();
-        var Message = $("#Message").val();
-        var Date = $('#Date').val();
-        var ReferenceType = $('#ReferenceType').val();
-        var ReferenceName = $('#ReferenceName').val();
-        // var DOB = $('#DOB').val();
-        // var Gender = $('#Gender').val();
-        
+            function saveperform() {
+                var PartyName = $('#PartyName').val();
+                var PartyShortName = $("#PartyShortName").val();
+                var Description = $("#Description").val();
 
-// Check if no gender is selected
 
-        // Check if any of the required fields are empty or haven't been selected
-        if (BranchName === "" || EmployeeName === "" ||Message=="" || Date === "" || ReferenceType === "" || ReferenceName === "") {
-            Swal.fire(
-                'Opps!',
-                'Please Enter Required Fields!',
-                'error'
-            );
-        } else {
-            a = true;
+                // Check if no gender is selected
 
-            $.ajax({
-                url: base_path + "staff/insertSTAFF",
-                type: "POST",
-                data: $('#Form').serialize(),
-                beforeSend: function(){
-                    $('#btn_save').prop('disabled', true);
-                    $('#btn_save').html('Loading');
-                }, 
-                success: function(data) {
-                    $('#btn_save').prop('disabled', false);
-                    $('#btn_save').html('Save');
-                    $("#Form").trigger("reset");
-                    
+                // Check if any of the required fields are empty or haven't been selected
+                if (PartyName === "" || PartyShortName === "" || Description == "") {
                     Swal.fire(
-                        'Good job!',
-                        'Data Submitted Successfully!',
-                        'success'
-                    );
-                    
-                    a = false;
-                },
-                error: function(xhr, textStatus, errorThrown) {
-                    // Handle errors here
-                    console.error("Error:", errorThrown);
-                    Swal.fire(
-                        'Error!',
-                        'An error occurred during submission. Please try again.',
+                        'Opps!',
+                        'Please Enter Required Fields!',
                         'error'
                     );
+                } else {
+                    a = true;
+
+                    $.ajax({
+                        url: base_path + "HR/party/insertParty",
+                        type: "POST",
+                        data: $('#Form').serialize(),
+                        beforeSend: function() {
+                            $('#btn_save').prop('disabled', true);
+                            $('#btn_save').html('Loading');
+                        },
+                        success: function(data) {
+                            $('#btn_save').prop('disabled', false);
+                            $('#btn_save').html('Save');
+                            $("#Form").trigger("reset");
+
+                            Swal.fire(
+                                'Good job!',
+                                'Data Submitted Successfully!',
+                                'success'
+                            );
+                            window.location.href = base_path+"HR/party/index";
+
+                            a = false;
+                        },
+                        error: function(xhr, textStatus, errorThrown) {
+                            // Handle errors here
+                            console.error("Error:", errorThrown);
+                            Swal.fire(
+                                'Error!',
+                                'An error occurred during submission. Please try again.',
+                                'error'
+                            );
+                        }
+                    });
                 }
-            });
-        }
-    }
-</script>
+            }
+        </script>

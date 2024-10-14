@@ -31,6 +31,8 @@ class EquipmentMaster extends CI_Controller {
         $this->load->view('common/footer_view');
 	}
 
+   
+
     public function update($id=null)
     {
      if($id){
