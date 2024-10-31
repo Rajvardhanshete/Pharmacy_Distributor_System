@@ -30,6 +30,14 @@ class EquipmentMaster extends CI_Controller {
 		$this->load->view('warehouse/equipmentmaster/Equipmentmaster_view', $data);
         $this->load->view('common/footer_view');
 	}
+    public function report()
+	{
+        $data['warehousedata']=$this->EquipmentMaster_model->warehouseDropdown();
+
+		$this->load->view('common/header_view');
+		$this->load->view('warehouse/equipmentmaster/Equipmentmaster_view', $data);
+        $this->load->view('common/footer_view');
+	}
 
    
 

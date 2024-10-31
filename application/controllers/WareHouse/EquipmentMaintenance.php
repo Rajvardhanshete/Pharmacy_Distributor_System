@@ -31,6 +31,14 @@ class EquipmentMaintenance extends CI_Controller {
 		$this->load->view('warehouse/equipmentmaintenance/Equipmentmaintenance',$data);
         $this->load->view('common/footer_view');
 	}
+    public function report()
+	{
+        // $data['equipmentdata']=$this->EquipmentMaintenance_model->equipmentDropdown();
+
+		// $this->load->view('common/header_view');
+		$this->load->view('warehouse/equipmentmaintenance/EquipmentMaintenance_report');
+        // $this->load->view('common/footer_view');
+	}
 
 
     public function update($id=null)

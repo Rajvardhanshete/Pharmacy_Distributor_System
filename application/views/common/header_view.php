@@ -639,7 +639,7 @@
                 <li class="nav-item">
                         <a href="#subMenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="font-size:1rem;">
                         <i class="fa-solid fa-bars-progress icond"></i>&nbsp;
-                        <span class="item-name">Management</span></a>
+                        <span class="item-name">Equipment</span></a>
                         <ul class="collapse list-unstyled" id="subMenu1" style="background-color:#1F3F49;">
                             <li>
                                 <a href="<?=base_url();?>WareHouse/EquipmentMaster/create" style="color:white;">Create</a>
@@ -655,7 +655,7 @@
                     <li class="nav-item">
                         <a href="#subMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="font-size:1rem;">
                         <i class="fa-solid fa-wrench icond"></i>&nbsp;
-                        <span class="item-name"> Maintenance</span></a>
+                        <span class="item-name">Equipment Maintenance</span></a>
                         <ul class="collapse list-unstyled" id="subMenu" style="background-color:#1F3F49;">
                             <li>
                                 <a href="<?=base_url();?>WareHouse/EquipmentMaintenance/create" style="color:white;">Create</a>
@@ -673,7 +673,7 @@
                     <li class="nav-item">
                         <a href="#subMenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="font-size:1rem;">
                         <i class="fa-brands fa-slack icond"></i>&nbsp;
-                        <span class="item-name">Batch</span></a>
+                        <span class="item-name">Warehouse</span></a>
                         <ul class="collapse list-unstyled" id="subMenu2" style="background-color:#1F3F49;">
                             <li>
                                 <a href="#" style="color:white;">Create</a>
@@ -690,7 +690,7 @@
                     <li class="nav-item">
                         <a href="#subMenu4" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="font-size:1rem;">
                         <i class="fa-solid fa-box-archive icond"></i>&nbsp;
-                        <span class="item-name">Stock Data</span></a>
+                        <span class="item-name">Damage Stock Data</span></a>
                         <ul class="collapse list-unstyled" id="subMenu4" style="background-color:#1F3F49;">
                             <li>
                                 <a href="#" style="color:white;">Create</a>

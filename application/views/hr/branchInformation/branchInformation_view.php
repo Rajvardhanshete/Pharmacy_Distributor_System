@@ -30,25 +30,23 @@
                 <div class="card mb-4">
                     <div class="card-body">
                         <form role="form" id="Form" action="" method="post">
-                            <ul class="nav nav-tabs">
+                            <ul class="nav nav-tabs" id="nav-tabs">
                                 <li class="nav-item" id="nav1">
-                                    <a class="nav-link active" aria-current="page" data-toggle="tab" href="#form1"><i class="fa-solid fa-circle-info"></i>&nbsp;Branch Details</a>
+                                    <a data-index="0" class="nav-link active" aria-current="page" data-toggle="tab" href="#form1"><i class="fa-solid fa-circle-info"></i>&nbsp;Branch Details</a>
                                 </li>
                                 <li class="nav-item" id="nav2">
-                                    <a class="nav-link" data-toggle="tab" href="#form2"><i class="fa-solid fa-person"></i>&nbsp;Person Info</a>
+                                    <a data-index="1" class="nav-link" data-toggle="tab" href="#form2"><i class="fa-solid fa-person"></i>&nbsp;Person Info</a>
                                 </li>
                                 <li class="nav-item" id="nav3">
-                                    <a class="nav-link" data-toggle="tab" href="#form3"><i class="fa-solid fa-address-card"></i>&nbsp;Address Info</a>
+                                    <a data-index="2" class="nav-link" data-toggle="tab" href="#form3"><i class="fa-solid fa-address-card"></i>&nbsp;Address Info</a>
                                 </li>
                                 <li class="nav-item" id="nav4">
-                                    <a class="nav-link" data-toggle="tab" href="#form4"><i class="fa-solid fa-receipt"></i>&nbsp;Cash Account Info</a>
+                                    <a data-index="3" class="nav-link" data-toggle="tab" href="#form4"><i class="fa-solid fa-receipt"></i>&nbsp;Cash Account Info</a>
                                 </li>
                                 <li class="nav-item" id="nav5">
-                                    <a class="nav-link" data-toggle="tab" href="#form5"><i class="fa-solid fa-circle-info"></i>&nbsp;Account Info</a>
+                                    <a data-index="4" class="nav-link" data-toggle="tab" href="#form5"><i class="fa-solid fa-circle-info"></i>&nbsp;Account Info</a>
                                 </li>
-                                <li class="nav-item" id="nav6">
-                                    <a class="nav-link" data-toggle="tab" href="#form6"><i class="fa-solid fa-file-invoice"></i>&nbsp;Documents Info</a>
-                                </li>
+                               
                             </ul>
 
 
@@ -69,11 +67,20 @@
                                         <div class="col-md-3 form-group mb-3">
                                             <label for="PartyName">Party Name</label>
                                             <select class="form-control" name="PartyName" id="PartyName">
-                                                <option value="">Select Party Name</option>
-                                                <option value="">Select Party Name</option>
-                                                <option value="">Select Party Name</option>
-                                                <option value="">Select Party Name</option>
-                                                <option value="">Select Party Name</option>
+                                            <option value="">--Select--</option>
+                                            <?php foreach($party as $value)
+                                            {
+                                                // $selected="";
+                                                // if(!empty($data[0]->FkStockId)){
+
+                                                //     if($value->StockID == $data[0]->FkStockId) {
+                                                //       $selected="seleycted=selected";
+                                                //     } 
+                                                // }  
+                                                                
+                                                echo '<option value="'.$value->id.'" '.$selected.'>'.$value->PartyName.'</option>';
+                                            }
+                                            ?> 
                                             </select>
                                         </div>
 
@@ -177,7 +184,7 @@
                                                     <path d="m10.97 4.97-.02.022-3.473 4.425-2.093-2.094a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05" />
                                                 </svg>&nbsp next1</button> -->
 
-                                            <button class="btn btn-danger text-white" type="button" name="Next1" id="Next1" style="background-color:red;"><i class="fa-solid fa-xmark fa-xl"></i>&nbsp Next</button>
+                                            <button class="btn btn-danger text-white" type="button" name="nextButton" id="nextButton" style="background-color:red;">Next &nbsp <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
 
                                         </div>
                                     </div>
@@ -188,7 +195,7 @@
 
                                 <!-- Person Info Form-->
 
-                                <div class="tab-pane fade show" id="form2">
+                                <div class="tab-pane fade" id="form2">
                                     <div class="h3 text-left">Contact Person</div>
                                     <div class="row">
 
@@ -223,12 +230,12 @@
 
                                     <div class="row">
                                         <div class="col-md-12 text-right">
-                                            <button class="btn btn-primary  text-white" style="background-color:green;font-weight:900" type="button" name="btn_save" id="btn_save"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
-                                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
-                                                    <path d="m10.97 4.97-.02.022-3.473 4.425-2.093-2.094a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05" />
-                                                </svg>&nbsp Save</button>
-
-                                            <button class="btn btn-danger text-white" type="button" name="cancel" id="cancel" style="background-color:red;"><i class="fa-solid fa-xmark fa-xl"></i>&nbsp Cancel</button>
+                                            <!-- <button class="btn btn-primary  text-white" style="background-color:green;font-weight:900" type="button" name="btn_save" id="btn_save"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16"> -->
+                                                    <!-- <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" /> -->
+                                                    <!-- <path d="m10.97 4.97-.02.022-3.473 4.425-2.093-2.094a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05" /> -->
+                                                <!-- </svg>&nbsp Save</button> -->
+                                                <button class="btn btn-danger text-white" type="button" id="prevButton" style="background-color:red;"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp Previous Tab</button>
+                                                <button class="btn btn-danger text-white" type="button" name="nextButton1" id="nextButton1" style="background-color:red;">Next &nbsp <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
 
                                         </div>
                                     </div>
@@ -238,7 +245,7 @@
 
 
                                 <!-- Address Info Form-->
-                                <div class="tab-pane fade show" id="form3">
+                                <div class="tab-pane fade" id="form3">
 
                                     <div class="h3 text-left">Billing Address</div>
                                     <div class="row">
@@ -328,12 +335,12 @@
 
                                     <div class="row">
                                         <div class="col-md-12 text-right">
-                                            <button class="btn btn-primary  text-white" style="background-color:green;font-weight:900" type="button" name="btn_save" id="btn_save"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+                                            <!-- <button class="btn btn-primary  text-white" style="background-color:green;font-weight:900" type="button" name="btn_save" id="btn_save"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
                                                     <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
                                                     <path d="m10.97 4.97-.02.022-3.473 4.425-2.093-2.094a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05" />
-                                                </svg>&nbsp Save</button>
-
-                                            <button class="btn btn-danger text-white" type="button" name="cancel" id="cancel" style="background-color:red;"><i class="fa-solid fa-xmark fa-xl"></i>&nbsp Cancel</button>
+                                                </svg>&nbsp Save</button> -->
+                                                <button class="btn btn-danger text-white" type="button" id="prevButton1" style="background-color:red;"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp  Previous Tab</button>
+                                                <button class="btn btn-danger text-white" type="button" name="nextButton2" id="nextButton2" style="background-color:red;">Next &nbsp <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
 
                                         </div>
                                     </div>
@@ -344,7 +351,7 @@
 
 
                                 <!-- Cash Account Info Form-->
-                                <div class="tab-pane fade show" id="form4">
+                                <div class="tab-pane fade" id="form4">
                                     <div class="h3 text-left">Cash Account Information</div>
 
                                     <div class="row">
@@ -356,13 +363,13 @@
 
                                     <div class="row">
                                         <div class="col-md-12 text-right">
-                                            <button class="btn btn-primary  text-white" style="background-color:green;font-weight:900" type="button" name="btn_save" id="btn_save"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+                                            <!-- <button class="btn btn-primary  text-white" style="background-color:green;font-weight:900" type="button" name="btn_save" id="btn_save"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
                                                     <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
                                                     <path d="m10.97 4.97-.02.022-3.473 4.425-2.093-2.094a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05" />
-                                                </svg>&nbsp Save</button>
+                                                </svg>&nbsp Save</button> -->
 
-                                            <button class="btn btn-danger text-white" type="button" name="cancel" id="cancel" style="background-color:red;"><i class="fa-solid fa-xmark fa-xl"></i>&nbsp Cancel</button>
-
+                                                <button class="btn btn-danger text-white" type="button" id="prevButton2" style="background-color:red;"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp  Previous Tab</button>
+                                                <button class="btn btn-danger text-white" type="button" name="nextButton3" id="nextButton3" style="background-color:red;">Next &nbsp <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
                                         </div>
                                     </div>
 
@@ -371,7 +378,7 @@
 
 
                                 <!-- Account Info Form-->
-                                <div class="tab-pane fade show" id="form5">
+                                <div class="tab-pane fade" id="form5">
                                     <div class="h3 text-left">Account Details & Documents</div>
 
                                     <div class="row">
@@ -387,7 +394,7 @@
                                         </div>
 
                                         <div class="col-md-3 form-group mb-3">
-                                            <label for="BankBranchName">Bank Account Number</label>
+                                            <label for="BankAccountNumber">Bank Account Number</label>
                                             <input class="form-control" type="text" id="BankAccountNumber" name="BankAccountNumber" value="" />
                                         </div>
 
@@ -414,13 +421,12 @@
 
                                     <div class="row">
                                         <div class="col-md-12 text-right">
-                                            <button class="btn btn-primary  text-white" style="background-color:green;font-weight:900" type="button" name="btn_save" id="btn_save"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+                                            <!-- <button class="btn btn-primary  text-white" style="background-color:green;font-weight:900" type="button" name="btn_save" id="btn_save"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
                                                     <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
                                                     <path d="m10.97 4.97-.02.022-3.473 4.425-2.093-2.094a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05" />
-                                                </svg>&nbsp Save</button>
-
-                                            <button class="btn btn-danger text-white" type="button" name="cancel" id="cancel" style="background-color:red;"><i class="fa-solid fa-xmark fa-xl"></i>&nbsp Cancel</button>
-
+                                                </svg>&nbsp Save</button> -->
+                                                <button class="btn btn-danger text-white" type="button" id="prevButton3" style="background-color:red;"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp  Previous Tab</button>
+                                                <button class="btn btn-primary" type="button" name="btn_save_branch_info" id="btn_save_branch_info" style="background-color: #a82eda;font-weight:900 ;color:white;"><i class="fa-solid fa-floppy-disk" style="color: white; margin-right:.2rem"></i>Save</button>
                                         </div>
                                     </div>
 
@@ -429,105 +435,8 @@
                                 <!-- Account Info Form End-->
 
 
-                                <!-- Documents Info Form-->
-                                <div class="tab-pane fade show" id="form6">
-                                    <div class="row">
-                                        <div class="col-md-2 form-group mb-3">
-                                            <label>Document Type</label>
-                                            <select class="form-control" name="CountryName" id="CountryName">
-
-                                                <option value="0">-Select Document Type-</option>
-                                                <option value="PDF">PDF</option>
-                                                <option value="Text">Text</option>
-                                                <option value="Image">Image</option>
-                                                <option value="Other">other</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-3 form-group mb-3">
-                                            <label>File Number</label>
-                                            <input class="form-control" id="FileNumber" type="text" name="FileNumber" value="" />
-                                        </div>
-
-                                        <div class="col-md-2 form-group mb-3">
-                                            <label for="StartDate">Start Date</label>
-                                            <input class="form-control" type="date" id="StartDate" name="StartDate" value="<?php echo date('Y-m-d'); ?>" />
-                                        </div>
-
-                                        <div class="col-md-2 form-group mb-3">
-                                            <label for="ExpiryDate">Expiry Date</label>
-                                            <input class="form-control" type="date" id="ExpiryDate" name="ExpiryDate" value="<?php echo date('Y-m-d'); ?>" />
-                                        </div>
-
-                                        <div class="col-md-3 form-group mb-3">
-                                            <label>Warning Before Expiry</label>
-                                            <input class="form-control" type="text" id="WarningBeforeExpiry" name="WarningBeforeExpiry" value="" />
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-12 text-right">
-                                            <button class="btn btn-primary  text-white" style="background-color:orange;font-weight:900;" type="button" name="btn_save" id="btn_save">
-                                                <i class="fa-solid fa-file-lines fa-xl"></i>&nbsp ADD TO LIST</button>
-
-                                            <!-- <button class="btn btn-warning text-white" type="button" name="cancel" id="cancel">Cancel</button> -->
-
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="table m-2">
-                                            <div class="table-responsive">
-                                                <table class="display table table-striped table-bordered" id="example" style="width:100%">
-                                                    <thead style="background-color:lightyellow;">
-                                                        <tr class="">
-                                                            <th>Operation</th>
-                                                            <th>Document Type</th>
-                                                            <th>File Number</th>
-                                                            <th>Attachment</th>
-                                                            <th>Start Date</th>
-                                                            <th>Expiry Date</th>
-                                                            <th>Warning Before Expiry</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-
-
-
-                                                        <!-- <?php
-                                                                $i = 0;
-                                                                foreach ($alldata as $rw => $value) {
-                                                                    echo "<tr>";
-                                                                    echo '<td><i class="fas fa-eye" style="font-size: 14px;"></i></a> 
-                                              </td>';
-                                                                    echo "<td>" . $value->id . "</td>";
-                                                                    echo "<td>" . $value->EnquiryName . "</td>";
-                                                                    echo "<td>" . $value->EnquiryTime . "</td>";
-                                                                }
-                                                                ?>  -->
-
-
-                                                    </tbody>
-
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-12 text-right">
-                                            <button class="btn btn-primary  text-white" style="background-color:green;font-weight:900" type="button" name="btn_save" id="btn_save"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
-                                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
-                                                    <path d="m10.97 4.97-.02.022-3.473 4.425-2.093-2.094a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05" />
-                                                </svg>&nbsp Save</button>
-
-                                            <button class="btn btn-danger text-white" type="button" name="cancel" id="cancel" style="background-color:red;"><i class="fa-solid fa-xmark fa-xl"></i>&nbsp Cancel</button>
-
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <!-- Documents Info Form End-->
                             </div>
-
+<p id = "currentTabIndex"> </p>
 
 
                         </form>
@@ -546,25 +455,124 @@
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
         <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        console.log("hello1");
+        const tabs = document.querySelectorAll('.nav-link');
+        const tabContents = document.querySelectorAll('.tab-pane');
+        let currentTabIndex = 0;
+        console.log("hello2");
+
+        // Function to show the current tab
+        function showTab(index) {
+            tabs.forEach((tab, i) => {
+                console.log("hello3");
+                tab.classList.toggle('active', i === index);
+            });
+            tabContents.forEach((content, i) => {
+                console.log("hello4");
+                content.classList.toggle('show', i === index);
+                content.classList.toggle('active', i === index);
+            });
+            // Update the current tab index display
+            console.log(document.getElementById('currentTabIndex'));
+            document.getElementById('currentTabIndex').textContent = `Current Tab Index: ${index}`;
+            console.log("hello5");
+        }
+
+        // Next tab button
+        document.getElementById('nextButton').addEventListener('click', function () {
+            if (currentTabIndex < (tabs.length - 1)) {
+                console.log("hello6");
+                currentTabIndex++;
+                showTab(currentTabIndex);
+                console.log("hello7");
+            }
+        });
+        document.getElementById('nextButton1').addEventListener('click', function () {
+            if (currentTabIndex < (tabs.length - 1)) {
+                console.log("hello6");
+                currentTabIndex++;
+                showTab(currentTabIndex);
+                console.log("hello7");
+            }
+        });
+        document.getElementById('nextButton2').addEventListener('click', function () {
+            if (currentTabIndex < (tabs.length - 1)) {
+                console.log("hello6");
+                currentTabIndex++;
+                showTab(currentTabIndex);
+                console.log("hello7");
+            }
+        });
+        document.getElementById('nextButton3').addEventListener('click', function () {
+            if (currentTabIndex < (tabs.length - 1)) {
+                console.log("hello6");
+                currentTabIndex++;
+                showTab(currentTabIndex);
+                console.log("hello7");
+            }
+        });
+        
+
+        // Previous tab button
+        document.getElementById('prevButton').addEventListener('click', function () {
+            if (currentTabIndex > 0) {
+                currentTabIndex--;
+                showTab(currentTabIndex);
+            }
+        });
+        document.getElementById('prevButton1').addEventListener('click', function () {
+            if (currentTabIndex > 0) {
+                currentTabIndex--;
+                showTab(currentTabIndex);
+            }
+        });
+        document.getElementById('prevButton2').addEventListener('click', function () {
+            if (currentTabIndex > 0) {
+                currentTabIndex--;
+                showTab(currentTabIndex);
+            }
+        });
+        document.getElementById('prevButton3').addEventListener('click', function () {
+            if (currentTabIndex > 0) {
+                currentTabIndex--;
+                showTab(currentTabIndex);
+            }
+        });
+        
+        // Initial tab display
+        showTab(currentTabIndex);
+    });
+</script>
+
+
+        <script>
+
+        const checkbox = document.getElementById('CheckboxActive');
+        let value = 0; // Initialize the variable
+
+        // Function to update the value based on checkbox state
+        function updateValue() {
+            value = checkbox.checked ? 1 : 0;
+            console.log(value); // Log the value for demonstration
+        }
+
+        // Add event listener for changes to the checkbox
+        checkbox.addEventListener('change', updateValue);
+            
             var base_path = "<?php echo base_url(); ?>";
             var a = false;
             const navItems = document.querySelectorAll('.nav-item');
             
             $(document).ready(function() {
-                $("#btn_save_branch_detail").click(function() {
+                $("#btn_save_branch_info").click(function() {
                     // if (!a) {
-                    saveperform_branchdetail();
-                    // }
+                    saveperform();
+                    //                     }
                 });
-                document.getElementById('Next1').addEventListener('click', () => {
-            document.querySelector('.nav-item.active').classList.remove('active');
-            document.getElementById('nav2').classList.add('active');
-            console.log("set");
-        });
+                });
 
-            });
-
-            function saveperform_branchdetail() {
+            function saveperform() {
                 var BranchName = $('#BranchName').val();
                 var PartyName = $("#PartyName").val();
                 var GSTNumber = $("#GSTNumber").val();
@@ -582,13 +590,40 @@
                 var TwitterLink = $('#TwitterLink').val();
                 var LinkedinLink = $('#LinkedinLink').val();
                 var InstagramLink = $('#InstagramLink').val();
-
-
+                var PersonName = $('#PersonName').val();
+                var PersonDesignation = $('#PersonDesignation').val();
+                var PersonContactNumber = $('#PersonContactNumber').val();
+                var PersonAlternetNumber = $('#PersonAlternetNumber').val();
+                var PersonEmail = $('#PersonEmail').val();
+                var Address = $('#Address').val();
+                var BillingPlace = $('#BillingPlace').val();
+                var BillingPincode = $('#BillingPincode').val();
+                var BillingThasil = $('#BillingThasil').val();
+                var BillingDestrict = $('#BillingDestrict').val();
+                var BillingState = $('#BillingState').val();
+                var BillingCountry = $('#BillingCountry').val();
+                var CheckboxSameAddress = $('#CheckboxSameAddress').val();
+                var ShippingAddress = $('#ShippingAddress').val();
+                var ShippingPlace = $('#ShippingPlace').val();
+                var ShippingPincode = $('#ShippingPincode').val();
+                var ShippingThasil = $('#ShippingThasil').val();
+                var ShippingDestrict = $('#ShippingDestrict').val();
+                var ShippingState = $('#ShippingState').val();
+                var ShippingCountry = $('#ShippingCountry').val();
+                var OpeningBalance = $('#OpeningBalance').val();
+                var BankName = $('#BankName').val();
+                var BankBranchName = $('#BankBranchName').val();
+                var BankAccountNumber = $('#BankAccountNumber').val();
+                var BankAccountHolderNumber = $('#BankAccountHolderNumber').val();
+                var BankIFSCCode = $('#BankIFSCCode').val();
+                var BankMICRCode = $('#BankMICRCode').val();
+                var CheckboxActive = value;
+                console.log(CheckboxActive);
 
                 // Check if no gender is selected
 
                 // Check if any of the required fields are empty or haven't been selected
-                if (BranchName === "" || PartyName === "" || GSTNumber == "0" || PANNumber === "" || StartTime === "" || EndTime === "" || HACDisplayName === "" || ContactNo ==="" || Email ==="" || PurchaseEmail ==="" || SalesEmail === "" || Website ==="" || FacebookLink === "" || GooglePlus === "" || TwitterLink ==="" || LinkedinLink ==="" || InstagramLink ==="" ) {
+                if (BranchName === "" || PartyName === "" || GSTNumber == "0" || PANNumber === "" || StartTime === "" || EndTime === "" || HACDisplayName === "" || ContactNo ==="" || Email ==="" || PersonName ==="" || PersonEmail === "" || Address ==="" || BillingPlace === "" || BillingPincode === "" || OpeningBalance ==="" || BankName ==="" || BankBranchName ==="" || BankAccountNumber ==="" || BankAccountHolderNumber ==="" || BankIFSCCode ==="" || BankMICRCode ==="" ) {
                     Swal.fire(
                         'Opps!',
                         'Please Enter Required Fields!',
@@ -602,12 +637,12 @@
                         type: "POST",
                         data: $('#Form').serialize(),
                         beforeSend: function() {
-                            $('#btn_save').prop('disabled', true);
-                            $('#btn_save').html('Loading');
+                            $('#btn_save_branch_info').prop('disabled', true);
+                            $('#btn_save_branch_info').html('Loading');
                         },
                         success: function(data) {
-                            $('#btn_save').prop('disabled', false);
-                            $('#btn_save').html('Save');
+                            $('#btn_save_branch_info').prop('disabled', false);
+                            $('#btn_save_branch_info').html('Save');
                             $("#Form").trigger("reset");
 
                             Swal.fire(

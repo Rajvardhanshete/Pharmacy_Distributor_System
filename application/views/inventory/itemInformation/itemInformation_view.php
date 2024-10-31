@@ -40,33 +40,61 @@
                                 <div class="col-md-3 form-group">
                                     <label for="ItemCategory">Item Category <span class="text-danger">*</span></label>
                                     <select class="form-control" name="ItemCategory" id="ItemCategory" required>
-                                        <option value="">Select item category</option>
-                                        <option value="">Select item category</option>
-                                        <option value="">Select item category</option>
-                                        <option value="">Select item category</option>
-                                        <option value="">Select item category</option>
+                                        <option value="">--Select--</option>
+                                        <?php foreach($itemcat as $value)
+                                            {
+                                                // $selected="";
+                                                // if(!empty($data[0]->FkStockId)){
+
+                                                //     if($value->StockID == $data[0]->FkStockId) {
+                                                //       $selected="seleycted=selected";
+                                                //     } 
+                                                // }  
+                                                
+                                                echo '<option value="'.$value->id.'" '.$selected.'>'.$value->	ItemCategoryName.'</option>';
+                                            }
+                                            ?> 
                                     </select>
                                 </div>
 
                                 <div class="col-md-2 form-group mb-3">
                                     <label for="BrandName">Brand Name <span class="text-danger">*</span></label>
                                     <select class="form-control" name="BrandName" id="BrandName" required>
-                                        <option value="">Select Brand Name</option>
-                                        <option value="">Select Brand Name</option>
-                                        <option value="">Select Brand Name</option>
-                                        <option value="">Select Brand Name</option>
-                                        <option value="">Select Brand Name</option>
+                                        <option value="">--Select Brand Name--</option>
+                                        <option value="Amitiza">Amitiza</option>
+                                        <option value="Botox">Botox</option>
+                                        <option value="Cialis">Cialis</option>
+                                        <option value="Dexilant">Dexilant</option>
+                                        <option value="Famvir">Famvir</option>
+                                        <option value="Gimoti">Gimoti</option>
+                                        <option value="Januvia">Januvia</option>
+                                        <option value="Jivi">Jivi</option>
+                                        <option value="Livalo">Livalo</option>
+                                        <option value="Muse">Muse</option>
+                                        <option value="Oseni">Oseni</option>
+                                        <option value="Relpax">Relpax</option>
+                                        <option value="Siliq">Siliq</option>
+                                        <option value="Venofer">Venofer</option>
+                                        <option value="Zynyz">Zynyz</option>
                                     </select>
                                 </div>
 
                                 <div class="col-md-2 form-group mb-3">
                                     <label for="Unit">Unit(UOM)</label>
                                     <select class="form-control" name="Unit" id="Unit">
-                                        <option value="">Select Unit</option>
-                                        <option value="">Select Unit</option>
-                                        <option value="">Select Unit</option>
-                                        <option value="">Select Unit</option>
-                                        <option value="">Select Unit</option>
+                                        <option value="">--Select Unit--</option>
+                                        <option value="Bag">Bag</option>
+                                        <option value="Bucket">Bucket</option>
+                                        <option value="Bundle">Bundle</option>
+                                        <option value="Box">Box</option>
+                                        <option value="Dozen">Dozen</option>
+                                        <option value="Kit">Kit</option>
+                                        <option value="Piece">Piece</option>
+                                        <option value="PK">PK</option>
+                                        <option value="PK100">PK100</option>
+                                        <option value="Rack">Rack</option>
+                                        <option value="Single">Single</option>
+                                        <option value="Set">Set</option>
                                     </select>
                                 </div>
 
@@ -92,37 +120,70 @@
 
                                 <div class="col-md-6 form-group mb-3">
                                     <label for="Party">Party</label>
-                                    <input class="form-control" type="text" id="Party" name="Party" placeholder=""/>
+                                    <select class="form-control" name="Party" id="Party" required>
+                                        <option value="">--Select--</option>
+                                        <?php foreach($party as $value)
+                                            {
+                                                // $selected="";
+                                                // if(!empty($data[0]->FkStockId)){
+
+                                                //     if($value->StockID == $data[0]->FkStockId) {
+                                                //       $selected="seleycted=selected";
+                                                //     } 
+                                                // }  
+                                                                
+                                                echo '<option value="'.$value->id.'" '.$selected.'>'.$value->PartyName.'</option>';
+                                            }
+                                            ?> 
+                                    </select>
                                 </div>
 
                                 <div class="col-md-6 form-group mb-3">
                                     <label for="ItemDescription">Item Description</label>
                                     <textarea class="form-control" id="ItemDescription" name="ItemDescription" placeholder="Please Enter Description"></textarea>
                                 </div>
-                                <div class="form-check col-md-2 mt-5" style="font-size: .9 rem;">
+                                <!-- <div class="form-check col-md-2 mt-5" style="font-size: .9 rem;">
                                     <input type="checkbox" class="form-check-input" id="CheckboxActive" name="CheckboxActive">
                                     <label for="CheckboxActive">Active</label>
-                                </div>
+                                </div> -->
 
                                 <div class="col-md-2 form-group mb-3">
                                     <label for="HSN">HSN</label>
                                     <select class="form-control" name="HSN" id="HSN">
-                                        <option value="">Select HSN</option>
-                                        <option value="">Select HSN</option>
-                                        <option value="">Select HSN</option>
-                                        <option value="">Select HSN</option>
-                                        <option value="">Select HSN</option>
+                                        <option value="">--Select--</option>
+                                        <?php foreach($hsn as $value)
+                                            {
+                                                // $selected="";
+                                                // if(!empty($data[0]->FkStockId)){
+
+                                                //     if($value->StockID == $data[0]->FkStockId) {
+                                                //       $selected="selected=selected";
+                                                //     } 
+                                                // }  
+                                                                
+                                                echo '<option value="'.$value->id.'" '.$selected.'>'.$value->	HSNCode4digit.'</option>';
+                                            }
+                                            ?> 
                                     </select>
                                 </div>
 
                                 <div class="col-md-2 form-group mb-3">
                                     <label for="GST">GST</label>
                                     <select class="form-control" name="GST" id="GST">
-                                        <option value="">Select GST</option>
-                                        <option value="">Select GST</option>
-                                        <option value="">Select GST</option>
-                                        <option value="">Select GST</option>
-                                        <option value="">Select GST</option>
+                                        <option value="">--Select--</option>
+                                        <?php foreach($gst as $value)
+                                            {
+                                                // $selected="";
+                                                // if(!empty($data[0]->FkStockId)){
+
+                                                //     if($value->StockID == $data[0]->FkStockId) {
+                                                //       $selected="selected=selected";
+                                                //     } 
+                                                // }  
+                                                                
+                                                echo '<option value="'.$value->id.'" '.$selected.'>'.$value->	GSTName.'</option>';
+                                            }
+                                            ?> 
                                     </select>
                                 </div>
 
@@ -176,13 +237,15 @@
             var SalePrice = $('#SalePrice').val();
             var Party = $('#Party').val();
             var ItemDescription = $('#ItemDescription').val();
+            var HSN = $('#HSN').val();
+            var GST = $('#GST').val();
 
 
 
             // Check if no gender is selected
 
             // Check if any of the required fields are empty or haven't been selected
-            if (ItemName === "" || ItemCategory === "" || BrandName == "0" || Unit === "" || MinStock === "" || MaxStock === "" || PurchasePrice === "" || SalePrice === "" || Party === "" || ItemDescription === "" || ) {
+            if (ItemName === "" || ItemCategory === "" || BrandName === "" || Unit === "" || MinStock === "" || MaxStock === "" || PurchasePrice === "" || SalePrice === "" || Party === "" || ItemDescription === "" || HSN === "" || GST === "") {
                 Swal.fire(
                     'Opps!',
                     'Please Enter Required Fields!',
@@ -192,7 +255,7 @@
                 a = true;
 
                 $.ajax({
-                    url: base_path + "Inventory/iteminformation",
+                    url: base_path + "Inventory/ItemInformation/insertItemInformation",
                     type: "POST",
                     data: $('#Form').serialize(),
                     beforeSend: function() {
@@ -209,6 +272,7 @@
                             'Data Submitted Successfully!',
                             'success'
                         );
+                        window.location.href = base_path + "Inventory/ItemInformation/index";
 
                         a = false;
                     },

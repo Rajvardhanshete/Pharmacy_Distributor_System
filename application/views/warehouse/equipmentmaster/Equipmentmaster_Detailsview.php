@@ -12,7 +12,8 @@
                             <div class="card-body">
                             <div class="breadcrumb">
                     <h1>WareHouse Details</h1>
-                    <button class="btn btn-primary"><a href="<?=base_url() ?>frontoffice/complain/create" class="text-white text-decoration-none"><i class="fa-solid fa-plus text-white"></i>&nbsp;Add New</a></button>
+                    <button class="btn btn-primary"><a href="<?=base_url() ?>WareHouse/EquipmentMaster/report" class="text-white text-decoration-none"><i class="fa-solid fa-plus text-white"></i>&nbsp;Generate Report</a></button>&nbsp&nbsp
+                    <button class="btn btn-primary"><a href="<?=base_url() ?>WareHouse/EquipmentMaster/create" class="text-white text-decoration-none"><i class="fa-solid fa-plus text-white"></i>&nbsp;Add New</a></button>
                              
                 </div>
                 <hr>
